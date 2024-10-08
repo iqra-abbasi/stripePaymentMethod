@@ -1,10 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-
 import 'Views/HomePage/homepage_screen.dart';
 
 
@@ -24,24 +20,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-    return ScreenUtilInit(
-      designSize: const Size(430, 932),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (_, child) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
 
-          // theme: Get.changeTheme(ThemeData.dark()),
-home: HomePageScreen(),
-          //for routings
-          getPages: [
-            //GetPage(name: '/', page:() => HomeScreen()),
-          ],
+      // theme: Get.changeTheme(ThemeData.dark()),
+      home: HomePageScreen(),
 
 
-        );
-      },
     );
   }}
 

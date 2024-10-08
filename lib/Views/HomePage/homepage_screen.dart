@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class HomePageScreen extends StatefulWidget {
@@ -14,23 +12,17 @@ class HomePageScreen extends StatefulWidget {
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
-
-
-  Map<String, dynamic>? paymentIntentData;
-
-
+  Map<String,dynamic>? paymentIntentData;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-
+     child: Scaffold(
         body: Padding(
           padding: EdgeInsets.only(top: 100.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
               GestureDetector(
                 onTap: () async {
 
@@ -40,8 +32,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
                 child: Center(
                   child: Container(
-                    height: 50.h,
-                    width: 300.w,
+                    height: 50,
+                    width: 300,
                     decoration: BoxDecoration(
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(10),
@@ -50,7 +42,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       child: Text('Pay Now!',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20.sp,
+                          fontSize: 20,
                           fontWeight: FontWeight.w300,
                         ),),
                     ),
@@ -105,15 +97,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
       await Stripe.instance.presentPaymentSheet();
       print('done payment');
 
-      Get.snackbar('Congratulations!', 'Payment Done',
-          backgroundColor: Colors.green,
-          borderRadius: 20,
-          icon: Icon(Icons.done),
-          snackPosition: SnackPosition.TOP,
-          snackStyle:SnackStyle.FLOATING,
-          onTap:(snap){
-
-          });
+      // Get.snackbar('Congratulations!', 'Payment Done',
+      //     backgroundColor: Colors.green,
+      //     borderRadius: 20,
+      //     icon: Icon(Icons.done),
+      //     snackPosition: SnackPosition.TOP,
+      //     snackStyle:SnackStyle.FLOATING,
+      //     onTap:(snap){
+      //
+      //     });
 
     }
    on StripeException catch(e){
@@ -126,15 +118,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
       //   ) ;
       //     });
 
-      Get.snackbar('Opps!', 'Cancelled',
-          backgroundColor: Colors.red,
-          borderRadius: 20,
-          icon: Icon(Icons.error),
-          snackPosition: SnackPosition.TOP,
-          snackStyle:SnackStyle.FLOATING,
-          onTap:(snap){
-
-          });
+      // Get.snackbar('Opps!', 'Cancelled',
+      //     backgroundColor: Colors.red,
+      //     borderRadius: 20,
+      //     icon: Icon(Icons.error),
+      //     snackPosition: SnackPosition.TOP,
+      //     snackStyle:SnackStyle.FLOATING,
+      //     onTap:(snap){
+      //
+      //     });
 
    }
   }
@@ -171,11 +163,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
       print('exception' + e.toString());
     }
   }
-
-
-
-
-
 calculateAmount(String amount){
     final price=int.parse(amount) * 100;
     return price.toString();
